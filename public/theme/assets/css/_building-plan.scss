@@ -1,0 +1,300 @@
+.building-plan-wrapper {
+    &.style1 {
+        position: relative;
+
+        .arrow-svg1 {
+            position: absolute;
+            top: 257px;
+            left: 450px;
+            @include breakpoint(max-xl2) {
+                left: 333px;
+            }
+            @include breakpoint(max-xxxl) {
+                left: 285px;
+            }
+            @include breakpoint(max-xxl) {
+                display: none;
+            }
+            path {
+                stroke: #1D1D1B;
+                stroke-width: 0.5;
+                stroke-miterlimit: 10;
+                fill: none;
+                stroke-dasharray: 1500;
+                stroke-dashoffset: 1500;
+                animation: draw 4s linear infinite;
+            }
+        }
+
+        .arrow-svg2 {
+            position: absolute;
+            top: 257px;
+            right: 450px;
+            @include breakpoint(max-xl2) {
+                right: 333px;
+            }
+            @include breakpoint(max-xxxl) {
+                right: 285px;
+            }
+            @include breakpoint(max-xxl) {
+                display: none;
+            }
+            path {
+                stroke: #1D1D1B;
+                stroke-width: 0.5;
+                stroke-miterlimit: 10;
+                fill: none;
+                stroke-dasharray: 1500;
+                stroke-dashoffset: 1500;
+                animation: draw 4s linear infinite;
+            }
+        }
+
+        .inner-top-content {
+            display: flex;
+            gap: 29px;
+            @include breakpoint(max-xl) {
+                display: grid;
+                grid-template-columns: repeat(2, 4fr);
+            }
+
+            @include breakpoint (max-xxsmall) {
+                grid-template-columns: repeat(1, 2fr);
+            }
+
+            .building-plan-card {
+                border: 1px solid #D0D0D0;
+                background: $white;
+                padding: 20px 30px;
+                border-radius: 20px;
+                display: inline-block;
+                text-align: center;
+
+                h3 {
+                    color: $black;
+                    margin-bottom: 20px;
+                    border-radius: 20px;
+                }
+
+                p {
+                    color: #565969;
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px;
+                    max-width: 240px;
+                    @include breakpoint (max-xxsmall) {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        .inner-bottom-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 21px;
+
+            .building-plan-card {
+                margin-top: 208px;
+                border: 1px solid #D0D0D0;
+                background: $white;
+                padding: 20px 30px;
+                border-radius: 20px;
+                text-align: center;
+                height: 138px;
+                @include breakpoint(max-xxl) {
+                    display: none;
+                }
+                h3 {
+                    color: $black;
+                    margin-bottom: 20px;
+                    border-radius: 20px;
+                }
+
+                p {
+                    color: #565969;
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px;
+                    max-width: 240px;
+                }
+            }
+
+            .thumb-shape {
+                padding-top: 47.22px;
+                position: relative;
+                @include breakpoint(max-xxl) {
+                    margin: 0 auto;
+                }
+                img{
+                    @include breakpoint(max-md) {
+                        width: 100%;
+                    }
+                }
+                .shape {
+                    position: absolute;
+                    top: 64px;
+                    left: 9px;
+                    @include breakpoint(max-md) {
+                        top: 33px;
+                        left: 8px;
+                    }
+                    @include breakpoint(max-sm) {
+                        display: none;
+                    }
+                    svg{
+                        @include breakpoint(max-md) {
+                            width: 500px;
+                        }
+                        @include breakpoint(max-sm) {
+                            width: 462px;
+                        }
+                    }
+                    path {
+                        stroke: #1D1D1B;
+                        stroke-width: 0.5;
+                        stroke-miterlimit: 10;
+                        fill: none;
+                        stroke-dasharray: 1500;
+                        stroke-dashoffset: 1500;
+                        animation: draw 4s linear infinite;
+                        @include breakpoint(max-md) {
+                            width: 500px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.style2 {
+        .building-plan-left {
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+            row-gap: 40px;
+            -webkit-column-gap: 30px;
+            -moz-column-gap: 30px;
+            column-gap: 30px;
+
+            @include breakpoint(max-xxs) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .building-plan-card {
+                border: 1px solid #D0D0D0;
+                background: $white;
+                padding: 20px 30px;
+                border-radius: 20px;
+                text-align: center;
+                height: 138px;
+                position: relative;
+
+                @include breakpoint(max-xxl) {
+                    padding: 20px 20px;
+                }
+
+                @include breakpoint(max-md) {
+                    height: 154px;
+                }
+
+                h3 {
+                    color: $black;
+                    margin-bottom: 20px;
+                    border-radius: 20px;
+                }
+
+                p {
+                    color: #565969;
+                    text-align: center;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px;
+                    max-width: 240px;
+                }
+
+                .arrow-svg1 {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: -40px;
+                }
+            }
+        }
+
+        .thumb-shape {
+            text-align: center;
+            position: relative;
+
+            img {
+                max-width: 100%;
+            }
+
+            .shape {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+
+                @include breakpoint(max-xxl) {
+                    top: -7px;
+                    left: 8px;
+                }
+
+                @include breakpoint(max-xl) {
+                    top: -8px;
+                    left: 153px;
+                }
+
+                @include breakpoint (max-lg) {
+                    left: 33px;
+                }
+
+                @include breakpoint(max-md) {
+                    left: 8px;
+                    top: -38px;
+                }
+
+
+                svg {
+                    max-width: 614px;
+                    height: 250px;
+
+                    @include breakpoint(max-xxl) {
+                        max-width: 527px;
+                        height: 254px;
+                    }
+
+                    @include breakpoint (max-xl) {
+                        max-width: 633px;
+                        height: 301px;
+                    }
+
+                    @include breakpoint(max-md) {
+                        max-width: 500px;
+                        height: 301px;
+                    }
+
+                    @include breakpoint(max-sm) {
+                        max-width: 434px;
+                        height: 270px;
+                        display: none;
+                    }
+                }
+
+                path {
+                    stroke: #1D1D1B;
+                    stroke-width: 0.5;
+                    stroke-miterlimit: 10;
+                    fill: none;
+                    stroke-dasharray: 1500;
+                    stroke-dashoffset: 1500;
+                    animation: draw 4s linear infinite;
+                }
+            }
+        }
+    }
+}
