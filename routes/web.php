@@ -15,6 +15,7 @@ Route::get('/what-we-do', [HomeController::class, 'whatWeDo'])->name('what-we-do
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/news-updates', [HomeController::class, 'newsUpdates'])->name('news-updates');
+Route::get('/news-updates/{slung}', [HomeController::class, 'newsUpdate'])->name('news-update');
 Route::get('/get-quotation', [HomeController::class, 'get_quotation'])->name('get-quotation');
 
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
@@ -23,6 +24,8 @@ Route::get('/construction-materials/{category}', [ConstructionMaterialController
 Route::get('/construction-materials/{category}/{product}', [ConstructionMaterialController::class, 'product'])->name('construction-material-product');
 Route::get('/terms-of-condition', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-of-condition');
 Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
+Route::get('/environmental-policy', [App\Http\Controllers\HomeController::class, 'environmental_policy'])->name('environmental-policy');
+
 
 Auth::routes();
 Route::group(['prefix'=>'admin'],function (){

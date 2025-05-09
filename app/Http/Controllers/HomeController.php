@@ -35,4 +35,10 @@ class HomeController extends Controller
     {
         return view('front.contact-us');
     }
+
+    public function newsUpdate($slung)
+    {
+        $Blog = \App\Models\Blog::where('slung', $slung)->first();
+        return view('front.newsUpdate', compact('Blog'));
+    }
 }

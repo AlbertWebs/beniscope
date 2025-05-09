@@ -311,120 +311,45 @@
        <div class="row">
           <div class="col-lg-12">
              <div class="title-style-two-center">
-                <h2 class="title">Articles & Blog Posts</h2>
-                <p class="disc">
-                   Quis nulla blandit vulputate morbi adipiscing sem vestibulum. Nulla turpis integer dui sed
-                   posuere sem. Id molestie mi arcu gravida lorem potenti.
-                </p>
+                <h2 class="title">News & Updates</h2>
+
              </div>
           </div>
        </div>
        <div class="row g-24 mt--40">
+          <?php $Blog = DB::table('blogs')->orderBy('id','DESC')->limit('3')->get(); ?>
+          @foreach ($Blog as $blog)
           <div class="col-lg-4 col-md-6 col-sm-12">
-             <div class="single-blog-three">
-                <a href="blog-details.html" class="thumbnail">
-                <img src="assets/images/blog/07.webp" alt="blgo-image">
-                </a>
-                <div class="inner-content-area">
-                   <div class="top-area">
-                      <div class="tag">
-                         <i class="fa-regular fa-tag"></i>
-                         <span>Solutions</span>
-                      </div>
-                      <div class="tag">
-                         <i class="fa-solid fa-messages"></i>
-                         <span>05 Comment</span>
-                      </div>
-                   </div>
-                   <a href="blog-details.html">
-                      <h3 class="title">
-                         This Schemata Approach Was Later
-                         Adopted For Services
-                      </h3>
-                   </a>
-                   <div class="bottom-area">
-                      <div class="left">
-                         <img src="assets/images/blog/10.webp" alt="blog">
-                         <div class="info">
-                            <h5 class="title">Thomas Arthur</h5>
-                            <span>Author</span>
-                         </div>
-                      </div>
-                      <a href="blog-details.html" class="rts-btn btn-primary">Read Details</a>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-             <div class="single-blog-three">
-                <a href="blog-details.html" class="thumbnail">
-                <img src="assets/images/blog/08.webp" alt="blgo-image">
-                </a>
-                <div class="inner-content-area">
-                   <div class="top-area">
-                      <div class="tag">
-                         <i class="fa-regular fa-tag"></i>
-                         <span>Solutions</span>
-                      </div>
-                      <div class="tag">
-                         <i class="fa-solid fa-messages"></i>
-                         <span>05 Comment</span>
-                      </div>
-                   </div>
-                   <a href="blog-details.html">
-                      <h3 class="title">
-                         What Projects Provide the Best Return
-                         on Investment?
-                      </h3>
-                   </a>
-                   <div class="bottom-area">
-                      <div class="left">
-                         <img src="assets/images/blog/11.webp" alt="blog">
-                         <div class="info">
-                            <h5 class="title">Oliver Edward</h5>
-                            <span>Author</span>
-                         </div>
-                      </div>
-                      <a href="blog-details.html" class="rts-btn btn-primary">Read Details</a>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-             <div class="single-blog-three">
-                <a href="blog-details.html" class="thumbnail">
-                <img src="assets/images/blog/09.webp" alt="blgo-image">
-                </a>
-                <div class="inner-content-area">
-                   <div class="top-area">
-                      <div class="tag">
-                         <i class="fa-regular fa-tag"></i>
-                         <span>Solutions</span>
-                      </div>
-                      <div class="tag">
-                         <i class="fa-solid fa-messages"></i>
-                         <span>05 Comment</span>
-                      </div>
-                   </div>
-                   <a href="blog-details.html">
-                      <h3 class="title">
-                         Max Space in Small Homes Renovation
-                         Tips for More Storage and Style
-                      </h3>
-                   </a>
-                   <div class="bottom-area">
-                      <div class="left">
-                         <img src="assets/images/blog/12.webp" alt="blog">
-                         <div class="info">
-                            <h5 class="title">Thomas Arthur</h5>
-                            <span>Author</span>
-                         </div>
-                      </div>
-                      <a href="blog-details.html" class="rts-btn btn-primary">Read Details</a>
-                   </div>
-                </div>
-             </div>
-          </div>
+            <div class="single-blog-three">
+               <a href="blog-details.html" class="thumbnail">
+                <img style="height:300px; width:100%; object-fit:cover" src="{{url('/')}}/uploads/blogs/{{$blog->image_one}}" alt="{{$blog->title}}">
+               </a>
+               <div class="inner-content-area">
+                  <div class="top-area">
+                     <div class="tag">
+                        <i class="fa-regular fa-tag"></i>
+                        <span>Solutions</span>
+                     </div>
+                  </div>
+                  <a href="{{url('/')}}/news-updates/{{$blog->slung}}">
+                     <h3 class="title">
+                        {{$blog->title}}
+                     </h3>
+                  </a>
+                  <div class="bottom-area">
+                     <div class="left">
+                        {{-- <img src="assets/images/blog/10.webp" alt="blog"> --}}
+                        <div class="info">
+                           <h5 class="title">Erp Team</h5>
+                           <span>Author</span>
+                        </div>
+                     </div>
+                     <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="rts-btn btn-primary">Read Details</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+          @endforeach
        </div>
     </div>
  </div>

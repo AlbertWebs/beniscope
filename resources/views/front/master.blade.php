@@ -4,7 +4,43 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-      <title>Beniscope - Construction Building & Renovation HTML Template</title>
+      {{--  --}}
+      <title>Beniscope - Construction Consultancy & Project Management in Kenya</title>
+      <meta name="description" content="Beniscope offers expert construction consultancy and project management services in Kenya. Contact us at (+254) 45 717 709 or visit us at Prestige Plaza, Nairobi.">
+      <link rel="canonical" href="https://beniscope.com/">
+
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:title" content="Beniscope - Construction Consultancy & Project Management in Kenya">
+      <meta property="og:description" content="Expert construction consultancy and project management services in Kenya. Contact Beniscope for project management, construction consultancy, and more.">
+      <meta property="og:image" content="https://beniscope.com/logo.jpeg">
+      <meta property="og:url" content="https://beniscope.com/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Beniscope">
+      <meta property="og:phone_number" content="(+254) 45 717 709">
+      <meta property="og:locale" content="en_KE">
+
+      <!-- Twitter Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Beniscope - Construction Consultancy & Project Management in Kenya">
+      <meta name="twitter:description" content="Contact Beniscope for reliable construction consultancy and project management services in Kenya. Call (+254) 45 717 709 or visit us at Prestige Plaza, Nairobi.">
+      <meta name="twitter:image" content="https://beniscope.com/logo.jpeg">
+      <meta name="twitter:site" content="@beniscope">
+      <meta name="twitter:creator" content="@beniscope">
+
+      <!-- Geo Location Meta Tags -->
+      <meta name="geo.region" content="KE">
+      <meta name="geo.placename" content="Nairobi, Kenya">
+      <meta name="geo.position" content="-1.2921;36.8219">
+      <meta name="ICBM" content="-1.2921, 36.8219">
+
+      <!-- Contact Meta Tags -->
+      <meta name="contact.phone" content="(+254) 45 717 709">
+      <meta name="contact.address" content="Prestige Plaza, Nairobi, Kenya">
+      <meta name="contact.country" content="Kenya">
+
+      <!-- Keywords Meta Tag -->
+      <meta name="keywords" content="Construction Consultancy, Project Management, Construction Services, Consultancy in Kenya, Project Management Kenya, Beniscope, Nairobi, Kenya">
+      {{--  --}}
       <!-- fontawesome css -->
       <link rel="stylesheet" preload="" href="{{asset('theme/assets/css/plugins/fontawesome.css')}}">
       <link rel="stylesheet" preload="" href="{{asset('theme/assets/css/plugins/aos.css')}}">
@@ -159,7 +195,7 @@
                         <div class="col-lg-6">
                            <div class="footer-five-left-area">
                               <h2 class="title">Start your journey to <br>
-                                 better business
+                                 better structures.
                               </h2>
                               <form action="#">
                                  <input class="email" type="text" placeholder="Enter your email here...">
@@ -180,19 +216,19 @@
                                  <div class="single-usefull-name-five-footer">
                                     <h5 class="title">Quick Services</h5>
                                     <ul>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>General
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>General
                                           Contracting</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Project
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Project
                                           Management</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>New
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>New
                                           Construction</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Renovations &
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Renovations &
                                           Remodeling</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Interior
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Interior
                                           Finishing</a>
                                        </li>
                                     </ul>
@@ -201,19 +237,19 @@
                               <div class="col-lg-6">
                                  <div class="single-usefull-name-five-footer">
                                     <ul>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Project
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Project
                                           Consultation</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Design &
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Design &
                                           Planning</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Residential
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Residential
                                           Construction</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Commercial
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Commercial
                                           Construction</a>
                                        </li>
-                                       <li><a href="service-single.html"><i class="fa-light fa-arrow-right"></i>Renovation
+                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Renovation
                                           Services</a>
                                        </li>
                                     </ul>

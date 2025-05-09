@@ -4,8 +4,45 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" type="image/x-icon" href="{{asset('theme/assets/images/fav.png')}}">
-      <title>Beniscope - Construction Building & Renovation HTML Template</title>
-      <!-- fontawesome css -->
+
+
+        <title>Beniscope - Construction Consultancy & Project Management in Kenya</title>
+        <meta name="description" content="Beniscope offers expert construction consultancy and project management services in Kenya. Contact us at (+254) 45 717 709 or visit us at Prestige Plaza, Nairobi.">
+        <link rel="canonical" href="https://beniscope.com/">
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Beniscope - Construction Consultancy & Project Management in Kenya">
+        <meta property="og:description" content="Expert construction consultancy and project management services in Kenya. Contact Beniscope for project management, construction consultancy, and more.">
+        <meta property="og:image" content="https://beniscope.com/logo.jpeg">
+        <meta property="og:url" content="https://beniscope.com/">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Beniscope">
+        <meta property="og:phone_number" content="(+254) 45 717 709">
+        <meta property="og:locale" content="en_KE">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Beniscope - Construction Consultancy & Project Management in Kenya">
+        <meta name="twitter:description" content="Contact Beniscope for reliable construction consultancy and project management services in Kenya. Call (+254) 45 717 709 or visit us at Prestige Plaza, Nairobi.">
+        <meta name="twitter:image" content="https://beniscope.com/logo.jpeg">
+        <meta name="twitter:site" content="@beniscope">
+        <meta name="twitter:creator" content="@beniscope">
+
+        <!-- Geo Location Meta Tags -->
+        <meta name="geo.region" content="KE">
+        <meta name="geo.placename" content="Nairobi, Kenya">
+        <meta name="geo.position" content="-1.2921;36.8219">
+        <meta name="ICBM" content="-1.2921, 36.8219">
+
+        <!-- Contact Meta Tags -->
+        <meta name="contact.phone" content="(+254) 45 717 709">
+        <meta name="contact.address" content="Prestige Plaza, Nairobi, Kenya">
+        <meta name="contact.country" content="Kenya">
+
+        <!-- Keywords Meta Tag -->
+        <meta name="keywords" content="Construction Consultancy, Project Management, Construction Services, Consultancy in Kenya, Project Management Kenya, Beniscope, Nairobi, Kenya">
+
+<!-- fontawesome css -->
       <link rel="stylesheet" preload="" href="{{asset('theme/assets/css/plugins/fontawesome.css')}}">
       <link rel="stylesheet" preload="" href="{{asset('theme/assets/css/plugins/aos.css')}}">
       <!-- swiper css-->
@@ -189,6 +226,7 @@
           </div>
        </div>
     </div>
+
     <div class="container-full">
        <div class="row">
           <div class="col-lg-12">
@@ -197,13 +235,10 @@
                    <div class="row">
                       <div class="col-lg-12">
                          <ul class="footer-float-nav">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="project.html">Projects</a></li>
-                            <li><a href="blog-grid.html">Updates</a></li>
-                            <li><a href="vision.html">Mission</a></li>
-                            <li><a href="company-history.html">Inside</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="company-story.html">History</a></li>
+                            <li><a href="{{route('who-we-are')}}">About Us</a></li>
+                            <li><a href="{{route('what-we-do')}}">What We Do</a></li>
+                            <li><a href="{{route('news-updates')}}">News</a></li>
+                            <li><a href="{{route('contact-us')}}">Contact Us</a></li>
                          </ul>
                       </div>
                    </div>
@@ -212,73 +247,7 @@
           </div>
        </div>
     </div>
-    <div class="container">
-       <div class="row g-5">
-          <div class="col-lg-4">
-             <div class="footer-wrapper-left-one">
-                <a href="#" class="logo">
-                <img width="200" src="{{asset('uploads/logo.jpeg')}}" alt="logo">
-                </a>
-                <p class="disc">
-                   we’re committed to elevating the construction experience for our clients. With a passion for
-                   innovation and quality craftsmanship,
-                </p>
-                <div class="social-area-wrapper-one">
-                   <ul>
-                      <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                      <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                      <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                   </ul>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-8">
-             <div class="footer-wrapper-right">
-                <div class="single-nav-area-footer use-link">
-                   <h4 class="title">Useful Links</h4>
-                   <ul>
-                      <li><a href="about.html"><i class="fa-regular fa-arrow-right-long"></i>About Us</a></li>
-                      <li><a href="about.html"><i class="fa-regular fa-arrow-right-long"></i>Our Gallery</a></li>
-                      <li><a href="service.html"><i class="fa-regular fa-arrow-right-long"></i>Our Services</a>
-                      </li>
-                      <li><a href="team.html"><i class="fa-regular fa-arrow-right-long"></i>Our Team</a></li>
-                      <li><a href="contact.html"><i class="fa-regular fa-arrow-right-long"></i>Contact Us</a></li>
-                   </ul>
-                </div>
-                <div class="single-nav-area-footer use-link">
-                   <h4 class="title">Quick Services</h4>
-                   <ul>
-                      <li><a href="service-single.html"><i class="fa-regular fa-arrow-right-long"></i>General
-                         Contracting</a>
-                      </li>
-                      <li><a href="service-single.html"><i class="fa-regular fa-arrow-right-long"></i>Project
-                         Management</a>
-                      </li>
-                      <li><a href="service-single.html"><i class="fa-regular fa-arrow-right-long"></i>New
-                         Construction</a>
-                      </li>
-                      <li><a href="service-single.html"><i class="fa-regular fa-arrow-right-long"></i>Renovations
-                         &
-                         Remodeling</a>
-                      </li>
-                      <li><a href="service-single.html"><i class="fa-regular fa-arrow-right-long"></i>Interior
-                         Finishing</a>
-                      </li>
-                   </ul>
-                </div>
-                <div class="single-nav-area-footer news-letter">
-                   <h4 class="title">Newsletter</h4>
-                   <p>Aplications prodize before front end ortals visualize front end</p>
-                   <form action="#">
-                      <input type="email" placeholder="Email Address" required="">
-                      <button class="btn-subscribe mt--15">Subscribe Now</button>
-                   </form>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
+
     <div class="container-full copyright-area-one">
        <div class="row">
           <div class="col-lg-12">
@@ -297,9 +266,9 @@
                          </p>
                          <div class="right-nav">
                             <ul>
-                               <li><a href="terms-of-condition.html">Terms of use </a></li>
-                               <li><a href="privacy-policy.html"> Privacy</a></li>
-                               <li><a href="privacy-policy.html">Environmental Policy</a></li>
+                               <li><a href="{{route('terms-of-condition')}}">Terms of use </a></li>
+                               <li><a href="{{route('privacy-policy')}}"> Privacy Policy</a></li>
+                               <li><a href="{{route('environmental-policy')}}">Environmental Policy</a></li>
                             </ul>
                          </div>
                       </div>

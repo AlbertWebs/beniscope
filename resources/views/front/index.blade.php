@@ -565,6 +565,55 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="swiper-slide">
+                                    <div class="single-case-studies-5">
+                                        <a href="#">
+                                            <img style="max-height:519px; object-fit:cover; width:100%;" src="{{asset('uploads/Kiemas.jpg')}}" alt="">
+                                        </a>
+                                        <svg width="698" height="505" viewbox="0 0 698 505" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="698" height="505" rx="10" fill="black" fill-opacity="0.61"></rect>
+                                            <g style="mix-blend-mode:overlay">
+                                                <rect width="698" height="505" rx="10" fill="url(#paint0_linear_6350_24)"></rect>
+                                            </g>
+                                            <defs>
+                                                <lineargradient id="paint0_linear_6350_24" x1="563" y1="-9.61239e-06" x2="63" y2="505" gradientunits="userSpaceOnUse">
+                                                    <stop stop-color="#F84E1D" offset="1"></stop>
+                                                    <stop offset="1" stop-color="#922E11" stop-opacity="0"></stop>
+                                                </lineargradient>
+                                            </defs>
+                                        </svg>
+                                        <div class="inner">
+                                            <div class="active-text-area">
+                                                <h1 class="title">Kiema's Resident</h1>
+                                                <p class="disc">
+                                                    This 3-bedroom villa features all ensuite bedrooms, a spacious living room, dining area, modern kitchen, laundry room, and a garage. The property also includes a beautiful landscape, with a balcony and terrace offering stunning views.
+
+                                                </p>
+                                                <ul class="feature">
+                                                    <li>
+                                                        <p>Client:</p> Private Ownser
+                                                    </li>
+                                                    <li>
+                                                        <p>Location:</p> Gikambura, Kikuyu, Kiambu County
+                                                    </li>
+                                                    <li>
+                                                        <p>Project Duration:</p> Estimated 18 months (Sep 2023 – Jan
+                                                        2025)
+                                                    </li>
+                                                    <li>
+                                                        <p>Project Cost(aprx):</p> 18 Million
+                                                    </li>
+
+                                                </ul>
+                                                <a target="new" href="{{asset('uploads/Kiemas.jpg')}}" class="rts-btn btn-primary">View
+                                                    Image<img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="arrow"></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -576,7 +625,7 @@
 
 
 
-    <!-- rts latest blgo area start -->
+    <!-- rts latest blog area start -->
     <div class="rts-latest-blog-area rts-section-gap rts-portfolio-area-case bg-white-1">
         <div class="container">
             <div class="row">
@@ -584,53 +633,90 @@
                     <div class="title-between-style-five mb--35">
                         <div class="title-left-align-five">
                             {{-- <span class="pre">Service we provide</span> --}}
-                            <h2 class="title">Articles & Blog Posts</h2>
+                            <h2 class="title">News & Updates</h2>
                         </div>
-                        <a href="blog-grid.html" class="rts-btn btn-primary">View All Posts
+                        <a href="{{route('news-updates')}}" class="rts-btn btn-primary">View All Posts
                             <img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="">
                         </a>
                     </div>
                 </div>
             </div>
             <div class="row g-24">
-                <div class="col-lg-12">
-                    <div class="single-blog-card-style-5">
-                        <div class="top-area-blog">
-                            <span>Through a unique combination of engineering, and construction</span>
-                            <a href="blog-details.html" class="thumbnail">
-                                <img src="{{asset('theme/assets/images/blog/15.webp')}}" alt="blog-image">
-                            </a>
-                        </div>
-                        <div class="inner-content-area">
-                            <div class="author-area">
-                                <img src="{{asset('theme/assets/images/blog/18.webp')}}" alt="">
-                                <div class="info">
-                                    <p>by</p>
-                                    <h5 class="name">Markus Smith</h5>
-                                </div>
-                            </div>
-                            <div class="title-content-area">
-                                <div class="tag-area">
-                                    <span>18 December, 2024</span>
-                                    <span class="intro">Interior Design</span>
-                                </div>
-                                <a href="blog-details.html">
-                                    <h3 class="title">
-                                        construction and design disciplines and expertise, Liquid delivers excellent
-                                        design
-                                        perspective Through
-                                    </h3>
+                <?php $Blogs = DB::table('blogs')->limit('3')->orderBy('id','ASC')->get(); ?>
+                @foreach ($Blogs as $blog)
+                   @if($blog->main == "1")
+                    <div class="col-lg-12">
+                        <div class="single-blog-card-style-5">
+                            <div class="top-area-blog">
+                                <span>Through a unique combination of engineering, and construction</span>
+                                <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="thumbnail">
+                                    <img src="{{url('/')}}/uploads/blogs/{{$blog->image_one}}" alt="{{$blog->title}}">
                                 </a>
-                                <a href="blog-details.html" class="read-more">Read Details</a>
+                            </div>
+                            <div class="inner-content-area">
+                                <div class="author-area">
+                                    {{-- <img src="{{asset('theme/assets/images/blog/18.webp')}}" alt=""> --}}
+                                    <div class="info">
+                                        <p>by</p>
+                                        <h5 class="name">ERP Team</h5>
+                                    </div>
+                                </div>
+                                <div class="title-content-area">
+                                    <div class="tag-area">
+                                        <span>{{date('d M, Y', strtotime($blog->created_at))}}</span>
+                                        <span class="intro">Construction & Engineering</span>
+                                    </div>
+                                    <a href="{{url('/')}}/news-updates/{{$blog->slung}}">
+                                        <h3 class="title">
+                                            {{$blog->title}}
+                                        </h3>
+                                    </a>
+                                    <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="read-more">Read Details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
+                   @else
+                    <div class="col-lg-6">
+                            <div class="single-blog-card-style-5 small-blog-five">
+                                <div class="top-area-blog">
+                                    <span>Through a unique combination of engineering, and construction</span>
+                                    <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="thumbnail">
+                                        <img style="max-height:424px; width:100%; object-fit:cover" src="{{url('/')}}/uploads/blogs/{{$blog->image_one}}" alt="blog-image">
+                                    </a>
+                                </div>
+                                <div class="inner-content-area">
+                                    <div class="author-area">
+                                        {{-- <img src="{{url('/')}}/uploads/blogs/{{$blog->image_one}}" alt="{{$blog->title}}"> --}}
+                                        <div class="info">
+                                            <p>by</p>
+                                            <h5 class="name">ERP Team</h5>
+                                        </div>
+                                    </div>
+                                    <div class="title-content-area">
+                                        <div class="tag-area">
+                                            <span>{{date('d M, Y', strtotime($blog->created_at))}}</span>
+                                            <span class="intro">Construction & Engineering</span>
+                                        </div>
+                                        <a href="{{url('/')}}/news-updates/{{$blog->slung}}">
+                                            <h3 class="title">
+                                                {{$blog->title}}
+                                            </h3>
+                                        </a>
+                                        <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="read-more">Read Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   @endif
+
+                @endforeach
+
+                {{-- <div class="col-lg-6">
                     <div class="single-blog-card-style-5 small-blog-five">
                         <div class="top-area-blog">
                             <span>Through a unique combination of engineering, and construction</span>
-                            <a href="blog-details.html" class="thumbnail">
+                            <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="thumbnail">
                                 <img src="{{asset('theme/assets/images/blog/16.webp')}}" alt="blog-image">
                             </a>
                         </div>
@@ -639,7 +725,7 @@
                                 <img src="{{asset('theme/assets/images/blog/18.webp')}}" alt="">
                                 <div class="info">
                                     <p>by</p>
-                                    <h5 class="name">Markus Smith</h5>
+                                    <h5 class="name">ERP Team</h5>
                                 </div>
                             </div>
                             <div class="title-content-area">
@@ -647,13 +733,13 @@
                                     <span>18 December, 2024</span>
                                     <span class="intro">Interior Design</span>
                                 </div>
-                                <a href="blog-details.html">
+                                <a href="{{url('/')}}/news-updates/{{$blog->slung}}">
                                     <h3 class="title">
                                         Liquid delivers excellent design perspective
                                         Through a unique combination
                                     </h3>
                                 </a>
-                                <a href="blog-details.html" class="read-more">Read Details</a>
+                                <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="read-more">Read Details</a>
                             </div>
                         </div>
                     </div>
@@ -662,7 +748,7 @@
                     <div class="single-blog-card-style-5 small-blog-five">
                         <div class="top-area-blog">
                             <span>Through a unique combination of engineering, and construction</span>
-                            <a href="blog-details.html" class="thumbnail">
+                            <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="thumbnail">
                                 <img src="{{asset('theme/assets/images/blog/17.webp')}}" alt="blog-image">
                             </a>
                         </div>
@@ -671,7 +757,7 @@
                                 <img src="{{asset('theme/assets/images/blog/18.webp')}}" alt="">
                                 <div class="info">
                                     <p>by</p>
-                                    <h5 class="name">Markus Smith</h5>
+                                    <h5 class="name">ERP Team</h5>
                                 </div>
                             </div>
                             <div class="title-content-area">
@@ -679,100 +765,26 @@
                                     <span>18 December, 2024</span>
                                     <span class="intro">Interior Design</span>
                                 </div>
-                                <a href="blog-details.html">
+                                <a href="{{url('/')}}/news-updates/{{$blog->slung}}">
                                     <h3 class="title">
                                         How to Use Lighting to Create Mood, Style, and
                                         Function in Any Room
                                     </h3>
                                 </a>
-                                <a href="blog-details.html" class="read-more">Read Details</a>
+                                <a href="{{url('/')}}/news-updates/{{$blog->slung}}" class="read-more">Read Details</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
-    <!-- rts latest blgo area end -->
+    <!-- rts latest blog area end -->
 
-    <!-- rts brand area start -->
-    <div class="rts-brand-area rts-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="swiper mySwiper-brand-1" dir="ltr">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/01.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/02.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/03.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/04.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/05.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/06.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/01.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/02.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/03.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/04.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/05.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="sigle-brand">
-                                    <img src="{{asset('theme/assets/images/brand/06.svg')}}" alt="brand">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- rts brand area end -->
 
 
     <!-- about us area start -->
-    <div class="about-us-area-five rts-section-gapBottom">
+    <div class="about-us-area-five rts-section-gapBottom rts-section-gap">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -782,17 +794,15 @@
                             <h2 class="title">We're focused on achieving your <br>
                                 project vision and business</h2>
                             <p class="disc">
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies class maecenas, fames
-                                curabitur cum varius fermentum dictum orci parturient habitant habitasse, non senectus
-                                dapibus sollicitudin auctor quisque netus consequat tellus. Integer pretium habitant
-                                suscipit.
+                                We are committed to bringing your project vision to life while aligning with your business goals. By understanding your needs and working closely with you, we ensure that every solution drives your success and exceeds expectations. Your vision is our priority, and we deliver results that make a real impact.
+
                             </p>
-                            <a href="about.html" class="rts-btn btn-primary">More About Us
+                            <a href="{{route('who-we-are')}}" class="rts-btn btn-primary">More About Us
                                 <img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="">
                             </a>
                         </div>
                         <div class="right-thumbnail">
-                            <img src="{{asset('theme/assets/images/about/09.webp')}}" alt="about">
+                            <img style="min-height:448px; object-fit:cover" src="{{asset('uploads/pexels-mcgzay-30661412.jpg')}}" alt="about">
                         </div>
                     </div>
                 </div>
