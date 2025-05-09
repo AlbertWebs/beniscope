@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\ConstructionSubcategory;
 use App\Models\ConstructionCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ConstructionSubcategoryController extends Controller
 {
     /**
-     * Display a listing of subcategories.
+     * Display a listing of admin.subcategories.
      */
     public function index()
     {
         $subcategories = ConstructionSubcategory::with('category')->get();
-        return response()->json($subcategories);
+        return view('admin.subcategories.index', compact('subcategories'));
+    }
+
+    /**
+     * Show the form for creating a new subcategory.
+     */
+    public function create()
+    {
+        $categories = ConstructionCategory::all(); // Get all construction categories
+        return view('admin.subcategories.create', compact('categories'));
     }
 
     /**
@@ -22,17 +32,19 @@ class ConstructionSubcategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->all();
         $request->validate([
-            'name' => 'required|string|max:255|unique:construction_subcategories',
+            'title' => 'required|string|max:255|unique:construction_subcategories',
             'construction_category_id' => 'required|exists:construction_categories,id',
         ]);
 
         $subcategory = ConstructionSubcategory::create([
-            'name' => $request->name,
+            'title' => $request->title,
+            'slung' => Str::slug($request->title), // Auto-generate slug
             'construction_category_id' => $request->construction_category_id,
         ]);
 
-        return response()->json(['message' => 'Subcategory created successfully', 'subcategory' => $subcategory]);
+        return redirect()->route('subcategories.index')->with('success', 'Subcategory created successfully!');
     }
 
     /**
@@ -41,7 +53,17 @@ class ConstructionSubcategoryController extends Controller
     public function show($id)
     {
         $subcategory = ConstructionSubcategory::with('category')->findOrFail($id);
-        return response()->json($subcategory);
+        return view('admin.subcategories.show', compact('subcategory'));
+    }
+
+    /**
+     * Show the form for editing the specified subcategory.
+     */
+    public function edit($id)
+    {
+        $subcategory = ConstructionSubcategory::findOrFail($id);
+        $categories = ConstructionCategory::all();
+        return view('admin.subcategories.edit', compact('subcategory', 'categories'));
     }
 
     /**
@@ -52,15 +74,15 @@ class ConstructionSubcategoryController extends Controller
         $subcategory = ConstructionSubcategory::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|string|max:255|unique:construction_subcategories,name,' . $id,
+            'title' => 'required|string|max:255|unique:construction_subcategories,title,' . $id,
             'construction_category_id' => 'required|exists:construction_categories,id',
         ]);
 
-        $subcategory->name = $request->name;
+        $subcategory->title = $request->title;
         $subcategory->construction_category_id = $request->construction_category_id;
         $subcategory->save();
 
-        return response()->json(['message' => 'Subcategory updated successfully', 'subcategory' => $subcategory]);
+        return redirect()->route('subcategories.index')->with('success', 'Subcategory updated successfully!');
     }
 
     /**
@@ -71,7 +93,6 @@ class ConstructionSubcategoryController extends Controller
         $subcategory = ConstructionSubcategory::findOrFail($id);
         $subcategory->delete();
 
-        return response()->json(['message' => 'Subcategory deleted successfully']);
+        return redirect()->route('subcategories.index')->with('success', 'Subcategory deleted successfully!');
     }
 }
-

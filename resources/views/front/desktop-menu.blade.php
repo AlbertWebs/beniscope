@@ -2,6 +2,9 @@
                               <li class="main-nav  project-a-after">
                                  <a href="#"><span class="fa fa-home"></span> &nbsp; Home</a>
                               </li>
+                              <li class="main-nav  project-a-after">
+                                <a href="{{route('who-we-are')}}"><span class="fa fa-info"></span> &nbsp; Who We Are</a>
+                             </li>
                               <li class="main-nav has-dropdown mega-menu">
                                  <a href="#">What We Do</a>
                                  <div class="rts-mega-menu service-mega-menu-style">

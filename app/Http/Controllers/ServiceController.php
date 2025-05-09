@@ -2,92 +2,81 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the services.
-     */
     public function index()
     {
         $services = Service::all();
-        return response()->json($services);
+        return view('services.index', compact('services'));
     }
 
-    /**
-     * Store a newly created service.
-     */
+    public function create()
+    {
+        return view('services.create');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'meta' => 'nullable|string|max:255',
+            'slung' => 'required|string|unique:services,slung',
+            'meta' => 'nullable|string',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imagePath = $request->file('image') ? $request->file('image')->store('services', 'public') : null;
+        $service = new Service($request->all());
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('services', 'public');
+            $service->image = $path;
+        }
+        $service->save();
 
-        $service = Service::create([
-            'title' => $request->title,
-            'slung' => Str::slug($request->title),
-            'meta' => $request->meta,
-            'description' => $request->description,
-            'image' => $imagePath
-        ]);
-
-        return response()->json(['message' => 'Service created successfully', 'service' => $service]);
+        return redirect()->route('services.index')->with('success', 'Service created successfully');
     }
 
-    /**
-     * Show the specified service.
-     */
     public function show($id)
     {
         $service = Service::findOrFail($id);
-        return response()->json($service);
+        return view('services.show', compact('service'));
     }
 
-    /**
-     * Update the specified service.
-     */
-    public function update(Request $request, $id)
+    public function edit($id)
     {
         $service = Service::findOrFail($id);
-
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'meta' => 'nullable|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
-        ]);
-
-        $service->title = $request->title;
-        $service->slung = Str::slug($request->title);
-        $service->meta = $request->meta;
-        $service->description = $request->description;
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('services', 'public');
-            $service->image = $imagePath;
-        }
-
-        $service->save();
-
-        return response()->json(['message' => 'Service updated successfully', 'service' => $service]);
+        return view('services.edit', compact('service'));
     }
 
-    /**
-     * Remove the specified service.
-     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'slung' => 'required|string|unique:services,slung,' . $id,
+            'meta' => 'nullable|string',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $service = Service::findOrFail($id);
+        $service->fill($request->except('image'));
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('services', 'public');
+            $service->image = $path;
+        }
+        $service->save();
+
+        return redirect()->route('services.index')->with('success', 'Service updated successfully');
+    }
+
     public function destroy($id)
     {
         $service = Service::findOrFail($id);
         $service->delete();
 
-        return response()->json(['message' => 'Service deleted successfully']);
+        return redirect()->route('services.index')->with('success', 'Service deleted successfully');
     }
 }

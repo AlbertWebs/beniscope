@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ConstructionSubcategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'construction_category_id']; // Add more fields as needed
+    protected $fillable = ['title', 'slung', 'construction_category_id']; // Add more fields as needed
 
     public function category()
     {

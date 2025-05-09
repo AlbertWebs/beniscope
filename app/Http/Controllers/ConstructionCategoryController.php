@@ -13,8 +13,22 @@ class ConstructionCategoryController extends Controller
      */
     public function index()
     {
-        $categories = ConstructionCategory::with('subcategories')->get();
-        return response()->json($categories);
+        $categories = ConstructionCategory::all();
+        return view('admin.categories.index', compact('categories'));
+    }
+
+    /**
+     * Show the form for creating a new category.
+     */
+    public function create()
+    {
+        return view('admin.categories.create');
+    }
+
+    public function show($id)
+    {
+        $categories = ConstructionCategory::findOrFail($id);
+        return view('admin.categories.show', compact('categories'));
     }
 
     /**
@@ -23,23 +37,26 @@ class ConstructionCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:construction_categories',
+            'title' => 'required|string|max:255|unique:construction_categories',
+            'description' => 'nullable|string',
         ]);
 
-        $category = ConstructionCategory::create([
-            'name' => $request->name,
+        ConstructionCategory::create([
+            'title' => $request->title,
+            'slung' => Str::slug($request->title), // Auto-generate slug
+            'description' => $request->description,
         ]);
 
-        return response()->json(['message' => 'Category created successfully', 'category' => $category]);
+        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
     }
 
     /**
-     * Show the specified category.
+     * Show the form for editing the specified category.
      */
-    public function show($id)
+    public function edit($id)
     {
-        $category = ConstructionCategory::with('subcategories')->findOrFail($id);
-        return response()->json($category);
+        $category = ConstructionCategory::findOrFail($id);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -50,13 +67,17 @@ class ConstructionCategoryController extends Controller
         $category = ConstructionCategory::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|string|max:255|unique:construction_categories,name,' . $id,
+            'title' => 'required|string|max:255|unique:construction_categories,title,' . $id,
+            'description' => 'nullable|string',
         ]);
 
-        $category->name = $request->name;
-        $category->save();
+        $category->update([
+            'title' => $request->title,
+            'slung' => Str::slug($request->title), // Auto-update slug
+            'description' => $request->description,
+        ]);
 
-        return response()->json(['message' => 'Category updated successfully', 'category' => $category]);
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -67,6 +88,6 @@ class ConstructionCategoryController extends Controller
         $category = ConstructionCategory::findOrFail($id);
         $category->delete();
 
-        return response()->json(['message' => 'Category deleted successfully']);
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
     }
 }

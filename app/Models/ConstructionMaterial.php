@@ -13,6 +13,7 @@ class ConstructionMaterial extends Model
         'title',
         'description',
         'image',
+        'slug',
         'price',
         'construction_category_id',
         'construction_subcategory_id',
