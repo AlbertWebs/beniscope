@@ -41,4 +41,11 @@ class HomeController extends Controller
         $Blog = \App\Models\Blog::where('slung', $slung)->first();
         return view('front.newsUpdate', compact('Blog'));
     }
+
+     public function service($slung)
+    {
+        $Service = \App\Models\Service::where('slung', $slung)->first();
+        return view('front.service', compact('Service'));
+    }
+    
 }

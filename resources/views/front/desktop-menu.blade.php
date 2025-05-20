@@ -7,114 +7,61 @@
                              </li>
                               <li class="main-nav has-dropdown mega-menu">
                                  <a href="#">What We Do</a>
+                                 <?php
+                                    $Service1 = \App\Models\Service::orderBy('id','DESC')->limit('3')->get();
+                                    $Service2 = \App\Models\Service::orderBy('id','ASC')->limit('2')->get();
+                                 ?>
                                  <div class="rts-mega-menu service-mega-menu-style">
                                     <div class="wrapper">
                                        <div class="container">
                                           <div class="row g-5">
                                              <div class="col-lg-4">
                                                 <ul class="mega-menu-item parent-nav">
-                                                   <li>
-                                                      <a href="service-single.html">
-                                                         <div class="single-service-menu">
-                                                            <div class="icon">
-                                                               <img src="{{asset('theme/assets/images/service/04.svg')}}" alt="service">
+                                                   @foreach ($Service1 as $service)
+                                                      <li>
+                                                         <a href="{{url('/')}}/service/{{$service->slung}}">
+                                                            <div class="single-service-menu">
+                                                               <div class="icon">
+                                                                  <img src="{{asset('theme/assets/images/service/04.svg')}}" alt="service">
+                                                               </div>
+                                                               <div class="info">
+                                                                  <h5 class="title">{{$service->title}}</h5>
+                                                                  <p class="details">
+                                                                     {{$service->mega}}
+                                                                  </p>
+                                                               </div>
                                                             </div>
-                                                            <div class="info">
-                                                               <h5 class="title">Residential Construction</h5>
-                                                               <p class="details">
-                                                                  Once planning is complete, site preparation begins. This phase
-                                                                  involves clearing...
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
-                                                   <li>
-                                                      <a href="service-single-two.html">
-                                                         <div class="single-service-menu">
-                                                            <div class="icon">
-                                                               <img src="{{asset('theme/assets/images/service/05.svg')}}" alt="service">
-                                                            </div>
-                                                            <div class="info">
-                                                               <h5 class="title">Renovations & Remodeling</h5>
-                                                               <p class="details">
-                                                                  Quis nulla blandit vulputate morbi adipiscing sem vestibulum.
-                                                                  Nulla turpis...
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
-                                                   <li>
-                                                      <a href="service-single-three.html">
-                                                         <div class="single-service-menu">
-                                                            <div class="icon">
-                                                               <img src="{{asset('theme/assets/images/service/06.svg')}}" alt="service">
-                                                            </div>
-                                                            <div class="info">
-                                                               <h5 class="title">Design Build Services</h5>
-                                                               <p class="details">
-                                                                  Elever Architecture is a New-York-based studio on modern design,
-                                                                  interiors and landscapes...
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
+                                                         </a>
+                                                      </li>
+                                                   @endforeach
+                                                   
                                                 </ul>
                                              </div>
                                              <div class="col-lg-4">
                                                 <ul class="mega-menu-item parent-nav">
-                                                   <li>
-                                                      <a href="service-single-four.html">
-                                                         <div class="single-service-menu">
-                                                            <div class="icon">
-                                                               <img src="{{asset('theme/assets/images/service/07.svg')}}" alt="service">
+                                                   @foreach ($Service2 as $service)
+                                                      <li>
+                                                         <a href="{{url('/')}}/service/{{$service->slung}}">
+                                                            <div class="single-service-menu">
+                                                               <div class="icon">
+                                                                  <img src="{{asset('theme/assets/images/service/04.svg')}}" alt="service">
+                                                               </div>
+                                                               <div class="info">
+                                                                  <h5 class="title">{{$service->title}}</h5>
+                                                                  <p class="details">
+                                                                     {{$service->mega}}
+                                                                  </p>
+                                                               </div>
                                                             </div>
-                                                            <div class="info">
-                                                               <h5 class="title">Structural Engineering</h5>
-                                                               <p class="details">
-                                                                  We provide best IT solutions for any type of business as
-                                                                  stragegy, management...
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
-                                                   <li>
-                                                      <a href="service-single-five.html">
-                                                         <div class="single-service-menu">
-                                                            <div class="icon">
-                                                               <img src="{{asset('theme/assets/images/service/09.svg')}}" alt="service">
-                                                            </div>
-                                                            <div class="info">
-                                                               <h5 class="title">Post-Construction</h5>
-                                                               <p class="details">
-                                                                  We provide best IT solutions for any type of business as
-                                                                  stragegy, management...
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
-                                                   <li>
-                                                      <a href="{{url('/')}}/contact-us" class="free-consultation">
-                                                         <div class="single-service-menu">
-                                                            <div class="info">
-                                                               <h5 class="title">Get Free Consultation</h5>
-                                                               <p class="details">
-                                                                  From preconstruction to virtual design and construction, we
-                                                                  offer virtual design construction.
-                                                               </p>
-                                                            </div>
-                                                         </div>
-                                                      </a>
-                                                   </li>
+                                                         </a>
+                                                      </li>
+                                                   @endforeach
+                                                  
                                                 </ul>
                                              </div>
                                              <div class="col-lg-4">
                                                 <div class="menu-thumb pl--20">
-                                                   <img src="{{asset('theme/assets/images/service/10.webp')}}" alt="">
+                                                   <img style="max-height:300px; width:100%; object-fit:cover" src="{{asset('theme/assets/images/service/service.jpeg')}}" alt="">  
                                                 </div>
                                              </div>
                                           </div>

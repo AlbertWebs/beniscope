@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/what-we-do', [HomeController::class, 'whatWeDo'])->name('what-we-do');
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
+Route::get('/service/{sung}', [HomeController::class, 'service'])->name('service');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/news-updates', [HomeController::class, 'newsUpdates'])->name('news-updates');
 Route::get('/news-updates/{slung}', [HomeController::class, 'newsUpdate'])->name('news-update');

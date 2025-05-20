@@ -160,7 +160,7 @@
             <div class="social-wrapper-one">
                <ul>
                   <li>
-                     <a href="#">
+                     <a href="#"> 
                      <i class="fa-brands fa-facebook-f"></i>
                      </a>
                   </li>
