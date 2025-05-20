@@ -7401,8 +7401,18 @@ img {
   border: 0;
   vertical-align: middle;
   max-width: 100%;
-  height: auto;
 }
+
+.right-thumbnail{
+  /* min-height: 800px; */
+  object-fit: cover;
+}
+
+.right-thumbnail img{
+  height: 100% !important;
+  object-fit: cover;
+}
+
 
 svg:not(:root) {
   overflow: hidden;
@@ -14936,7 +14946,7 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
 }
 
 .rts-breadcrumb-area.contact-bd {
-  background-image: url(../images/banner/breadcrumb-13.webp);
+  background-image: url(../images/banner/construction_image_2.png);
 }
 
 .demo-1.why-choose-us-area .vedio-icone .video-play-button {
@@ -17422,11 +17432,24 @@ header.header-three .sub-dropdown .submenu.third-lvl.base {
 .large-video-area-inner {
   height: 650px;
   width: 100%;
-  background-image: url(../images/about/11.webp);
+  background-image: url(../images/about/bluerint.png);
   border-radius: 10px;
   position: relative;
+  border:#98070c 3px solid;
 }
 
+.gradient-border {
+    /* Fallback for browsers that don't support gradients */
+    border: 8px solid #bb141b;
+    /* Gradient border */
+    border-image: linear-gradient(to right, #bb141b, #f9b023, #005490);
+    border-image-slice: 1;
+    display: flex; /* Added for centering */
+    justify-content: center; /* Added for centering */
+    align-items: center; /* Added for centering */
+    text-align: center;
+     border-radius: 10px !important;
+  }
 .why-choose-us-area.in-about-page {
   padding-top: 450px;
   background: #1E1E20;

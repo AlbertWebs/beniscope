@@ -92,7 +92,7 @@
            <div class="row">
               <div class="col-lg-12">
                  <div class="rts-map-main-wrapper">
-                    <div id="map-contact" class="map-contact" data-map-zoom="16" data-map-scroll="true"></div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.788787624957!2d36.78464359999999!3d-1.3016387999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11005997074f%3A0x20b47583edbd55d1!2sBeniscope%20East%20Africa%20Limited!5e0!3m2!1sen!2ske!4v1747399250943!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                  </div>
               </div>
            </div>

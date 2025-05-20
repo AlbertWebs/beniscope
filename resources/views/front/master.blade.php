@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+      <link rel="shortcut icon" type="image/x-icon" href="{{url('/')}}/uploads/favicon.png">
       {{--  --}}
       <title>Beniscope - Construction Consultancy & Project Management in Kenya</title>
       <meta name="description" content="Beniscope offers expert construction consultancy and project management services in Kenya. Contact us at (+254) 45 717 709 or visit us at Prestige Plaza, Nairobi.">
