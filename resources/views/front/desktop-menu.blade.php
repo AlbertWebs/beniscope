@@ -72,40 +72,31 @@
 
                               <li class="main-nav has-dropdown project-a-after">
                                  <a href="#"><span class="fa fa-shopping-cart"></span> &nbsp; Construction Material</a>
+                                  <?php $Categoriez = DB::table('category')->get(); ?>
                                  <ul class="submenu parent-nav">
-                                    <li><a href="#">Steel</a></li>
-                                    <li><a href="#">Cement</a></li>
-                                    <li><a href="#">Concrete</a></li>
-                                    <li><a href="#">Ready Mix Concrete</a></li>
-                                    <li class="sub-dropdown down">
-                                       <a href="#">Binding Wire</a>
-                                       <ul class="submenu third-lvl base">
-                                          <li><a href="#">Constructional Binding Wire (Straightened Cut Wire)</a></li>
-                                          <li><a href="#">Black Annealed Binding Wire</a></li>
-                                          <li><a href="#">Galvanized Iron Binding Wire</a></li>
-                                          <li><a href="#">Small Coil Rebar Wire</a></li>
-                                          <li><a href="#">Tie Loop Tie Wire</a></li>
-                                          <li><a href="#">Binding Wire for Packing</a></li>
-                                          <li><a href="#">U Type Binding Wire</a></li>
-                                          <li><a href="#">Galvanized Wire</a></li>
-                                          <li><a href="#">Stainless Steel Wire</a></li>
-                                          <li><a href="#">Brass Wire</a></li>
-                                          <li><a href="#">Aluminum Wire</a></li>
-                                          <li><a href="#">PVC Coated Binding Wire</a></li>
-                                       </ul>
-                                    </li>
-                                    <li><a href="#">Wood</a></li>
-                                    <li><a href="#">Stone</a></li>
-                                    <li><a href="#">Bricks</a></li>
-                                    <li><a href="#">Blocks</a></li>
-                                    <li><a href="#">Aggregates</a></li>
+                                     @foreach ($Categoriez as $categories)
+                                         <?php $SubCategories = DB::table('sub_categories')->where('category_id', $categories->id)->get(); ?>
+                                         @if($SubCategories->count() > 0)
+                                              <li class="sub-dropdown down">
+                                                <a href="#">{{$categories->cat}}</a>
+                                                <ul class="submenu third-lvl base">
+                                                   @foreach ($SubCategories as $subcategories)
+                                                      <li><a href="#">{{$subcategories->title}}</a></li>
+                                                   @endforeach
+                                                </ul>
+                                             </li>
+                                         @else
+                                             <li><a href="#">{{$categories->cat}}</a></li>
+                                          @endif
+                                    @endforeach
+                                   
                                  </ul>
                               </li>
                               <li class="main-nav">
-                                 <a href="#"><span class="fa fa-briefcase"></span> &nbsp; Project</a>
+                                 <a href="{{route('portfolio')}}"><span class="fa fa-briefcase"></span> &nbsp; Project</a>
                               </li>
                               <li class="main-nav">
-                                 <a href="#"><span class="fa fa-newspaper"></span> &nbsp;  News & Updates</a>
+                                 <a href="{{route('news-updates')}}"><span class="fa fa-newspaper"></span> &nbsp;  News & Updates</a>
                               </li>
 
                               <li class="main-nav"><a href="{{url('/')}}/contact-us"><span class="fa fa-address-book"></span> &nbsp;  Contact Us</a></li>

@@ -7,40 +7,40 @@
     </li>
     <li class="has-droupdown">
         <a href="#" class="main"><span class="fa fa-shopping-cart"></span> &nbsp; Construction Material</a>
+        <?php $Categoriez = DB::table('category')->get(); ?>
         <ul class="submenu mm-collapse">
-            <li><a href="#">Steel</a></li>
-            <li><a href="#">Cement</a></li>
-            <li><a href="#">Concrete</a></li>
-            <li><a href="#">Ready Mix Concrete</a></li>
-            <li class="sub-dropdown down">
-            <a href="#">Binding Wire</a>
-            <ul class="submenu third-lvl base">
-                <li><a href="#">Constructional Binding Wire (Straightened Cut Wire)</a></li>
-                <li><a href="#">Black Annealed Binding Wire</a></li>
-                <li><a href="#">Galvanized Iron Binding Wire</a></li>
-                <li><a href="#">Small Coil Rebar Wire</a></li>
-                <li><a href="#">Tie Loop Tie Wire</a></li>
-                <li><a href="#">Binding Wire for Packing</a></li>
-                <li><a href="#">U Type Binding Wire</a></li>
-                <li><a href="#">Galvanized Wire</a></li>
-                <li><a href="#">Stainless Steel Wire</a></li>
-                <li><a href="#">Brass Wire</a></li>
-                <li><a href="#">Aluminum Wire</a></li>
-                <li><a href="#">PVC Coated Binding Wire</a></li>
-            </ul>
+            @foreach ($Categoriez as $categories)
+             <?php $SubCategories = DB::table('sub_categories')->where('category_id', $categories->id)->get(); ?>
+             @if($SubCategories->count() > 0)
+                <li class="sub-dropdown down">
+             @else
+                 <li class="#"></li>
+             @endif
+            
+               
+                
+                <a href="#">{{$categories->cat}}</a>
+                @if($SubCategories->count() > 0)
+                    <ul class="submenu third-lvl base">
+                        @foreach ($SubCategories as $subcategories)
+                        <li><a href="#">{{$subcategories->title}}</a></li>
+                        @endforeach
+                    </ul>
+                @endif
             </li>
-            <li><a href="#">Wood</a></li>
-            <li><a href="#">Stone</a></li>
-            <li><a href="#">Bricks</a></li>
-            <li><a href="#">Blocks</a></li>
-            <li><a href="#">Aggregates</a></li>
+            @endforeach
+           
         </ul>
     </li>
     <li class="has-droupdown">
-        <a href="#" class="main">Projects</a>
+        <a href="{{route('portfolio')}}" class="main">Projects</a>
     </li>
 
 
+    
+    <li>
+    <a href="{{route('news-updates')}}" class="main">News Updates</a>
+    </li>
     <li>
     <a href="{{url('/')}}/contact-us" class="main">Contact Us</a>
     </li>

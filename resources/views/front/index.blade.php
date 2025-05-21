@@ -426,6 +426,10 @@
                     <div class="swiper-recent-project-5-wrapper">
                         <div class="swiper mySwiper-case-5" dir="ltr">
                             <div class="swiper-wrapper">
+                                <?php 
+                                   $Projects = DB::table('projects')->limit('5')->get();    
+                                ?>
+                                @foreach ($Projects as $project)
                                 <div class="swiper-slide">
                                     <div class="single-case-studies-5">
                                         <a href="#">
@@ -445,34 +449,19 @@
                                         </svg>
                                         <div class="inner">
                                             <div class="active-text-area">
-                                                <h1 class="title">Kiema's Resident</h1>
+                                                <h1 class="title">{{$project->title}}</h1>
                                                 <p class="disc">
-                                                    This 3-bedroom villa features all ensuite bedrooms, a spacious living room, dining area, modern kitchen, laundry room, and a garage. The property also includes a beautiful landscape, with a balcony and terrace offering stunning views.
-
+                                                    {{$project->meta}}
                                                 </p>
-                                                <ul class="feature">
-                                                    <li>
-                                                        <p>Client:</p> Private Ownser
-                                                    </li>
-                                                    <li>
-                                                        <p>Location:</p> Gikambura, Kikuyu, Kiambu County
-                                                    </li>
-                                                    <li>
-                                                        <p>Project Duration:</p> Estimated 18 months (Sep 2023 – Jan
-                                                        2025)
-                                                    </li>
-                                                    <li>
-                                                        <p>Project Cost(aprx):</p> 18 Million
-                                                    </li>
-
-                                                </ul>
-                                                <a target="new" href="{{asset('uploads/Kiemas.jpg')}}" class="rts-btn btn-primary">View
+                                                {!!html_entity_decode($project->description)!!}
+                                                <a target="new" href="{{url('/')}}/uploads/{{$project->image}}" class="rts-btn btn-primary">View
                                                     Image<img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="arrow"></a>
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
 
                                 <div class="swiper-slide">
                                     <div class="single-case-studies-5">

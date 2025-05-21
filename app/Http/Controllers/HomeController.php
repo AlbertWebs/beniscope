@@ -36,6 +36,13 @@ class HomeController extends Controller
         return view('front.contact-us');
     }
 
+    
+    public function newsUpdates()
+    {
+        $Blogs = \App\Models\Blog::orderBy('created_at', 'desc')->paginate(6);
+        return view('front.newsUpdates', compact('Blogs'));
+    }
+
     public function newsUpdate($slung)
     {
         $Blog = \App\Models\Blog::where('slung', $slung)->first();
@@ -48,4 +55,10 @@ class HomeController extends Controller
         return view('front.service', compact('Service'));
     }
     
+    // portfolio
+    public function portfolio()
+    {
+        $Projects = \App\Models\Project::orderBy('created_at', 'desc')->paginate(6);
+        return view('front.portfolio', compact('Projects'));
+    }
 }

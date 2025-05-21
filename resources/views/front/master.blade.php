@@ -138,7 +138,7 @@
          <!-- inner menu area desktop start -->
          <div class="inner-main-wrapper-desk">
             <div class="thumbnail">
-               <img src="assets/images/banner/04.jpg" alt="elevate">
+               <img src="{{asset('uploads/logo.png')}}" alt="Beniscope">
             </div>
             <div class="inner-content">
                <h4 class="title">We Build Building and Great Constructive Homes.</h4>

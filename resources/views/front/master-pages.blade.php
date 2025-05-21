@@ -112,7 +112,7 @@
                                     <i class="fa-regular fa-magnifying-glass"></i>
                                  </div>
                               </div>
-                              <a href="contact.html" class="rts-btn btn-header btn-transparent">Get a Quote
+                              <a href="{{url('/')}}/contact-us" class="rts-btn btn-header btn-transparent">Get a Quote
                               <img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="arrow">
                               </a>
                               <div class="nav-btn menu-btn">
@@ -134,7 +134,7 @@
          <!-- inner menu area desktop start -->
          <div class="inner-main-wrapper-desk">
             <div class="thumbnail">
-               <img src="assets/images/banner/04.jpg" alt="elevate">
+               <img src="{{asset('uploads/logo.png')}}" alt="Beniscope">
             </div>
             <div class="inner-content">
                <h4 class="title">We Build Building and Great Constructive Homes.</h4>
