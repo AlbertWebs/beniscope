@@ -427,13 +427,13 @@
                         <div class="swiper mySwiper-case-5" dir="ltr">
                             <div class="swiper-wrapper">
                                 <?php 
-                                   $Projects = DB::table('projects')->limit('5')->get();    
+                                   $Projects = DB::table('projects')->limit('6')->get();    
                                 ?>
                                 @foreach ($Projects as $project)
                                 <div class="swiper-slide">
                                     <div class="single-case-studies-5">
                                         <a href="#">
-                                            <img style="max-height:519px; object-fit:cover; width:100%;" src="{{asset('uploads/Kiemas.jpg')}}" alt="">
+                                            <img style="height:700px; object-fit:cover; width:100%;" src="{{url('/')}}/uploads/{{$project->image}}" alt="">
                                         </a>
                                         <svg width="698" height="505" viewbox="0 0 698 505" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="698" height="505" rx="10" fill="black" fill-opacity="0.61"></rect>
@@ -463,7 +463,7 @@
                                 </div>
                                 @endforeach
 
-                                <div class="swiper-slide">
+                                {{-- <div class="swiper-slide">
                                     <div class="single-case-studies-5">
                                         <a href="project-details.html">
                                             <img style="max-height:519px; object-fit:cover; width:100%;" src="{{asset('uploads/labans.jpg')}}" alt="">
@@ -601,7 +601,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>
