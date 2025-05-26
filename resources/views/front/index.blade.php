@@ -10,17 +10,49 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="rts-banner-area-inner-five">
-                                        {{-- <span class="pre">Precision & Quality</span> --}}
-                                        <h1 class="title">Comprehensive Construction <br>
-                                            <span>Consultancy</span>
-                                        </h1>
+                                    <div class="rts-banner-area-inner-five translucent">
+                                        <span class="pre">Precision & Quality</span>
+                                        <h1 class="title add-shadow" >Transforming Ideas Into Iconic Structures</h1>
+
+                                        <div class="button-wrapper">
+                                            <a href="{{url('/')}}/portfolio" class="rts-btn btn-primary">View Project</a>
+                                            <a href="#services" class="rts-btn btn-white">Our Services</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {{-- <div class="swiper-slide">
+                    
+                    <div class="banner-area-start bg_banner-bg-area two rts-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-two-inner">
+                                        <span>Building The Better Future</span>
+                                        <h1 class="title">
+                                            We’re Providing <br>
+                                            Industry Roofing <br>
+                                            Solution
+                                        </h1>
+                                        <p class="disc">
+                                            We provide a range of services including residential and commercial
+                                            construction,
+                                            renovations, project management, and custom builds.
+                                        </p>
+                                        <div class="button-wrapper">
+                                            <a href="project-card.html" class="rts-btn btn-primary">View Project</a>
+                                            <a href="service.html" class="rts-btn btn-white">Our Services</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div> --}}
                 {{-- <div class="swiper-slide">
                     <div class="rts-banner-area-five two bg_image">
                         <div class="container">
@@ -151,7 +183,7 @@
 
 
     <!-- rts service artea start -->
-    <div class="rts-service-area-five">
+    <div class="rts-service-area-five" id="services">
         <div class="container-full">
             <div class="row">
                 <div class="col-lg-12">
