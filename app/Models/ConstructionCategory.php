@@ -9,6 +9,8 @@ class ConstructionCategory extends Model
 {
     use HasFactory;
 
+    public $table = "category";
+
     protected $fillable = ['title', 'slung', 'description'];
 
     public function materials()

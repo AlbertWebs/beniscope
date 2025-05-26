@@ -11,7 +11,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="rts-banner-area-inner-five translucent">
-                                        <span class="pre">Precision & Quality</span>
+                                        <span class="pre">Precision in Every Decision</span>
                                         <h1 class="title add-shadow" >Transforming Ideas Into Iconic Structures</h1>
 
                                         <div class="button-wrapper">

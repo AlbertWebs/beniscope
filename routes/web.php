@@ -24,13 +24,17 @@ Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-u
 Route::get('/construction-materials', [ConstructionMaterialController::class, 'index'])->name('construction-materials');
 Route::get('/construction-materials/{category}', [ConstructionMaterialController::class, 'category'])->name('construction-material-category');
 Route::get('/construction-materials/{category}/{product}', [ConstructionMaterialController::class, 'product'])->name('construction-material-product');
-Route::get('/terms-of-condition', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-of-condition');
+Route::get('/terms-and-condition', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-of-condition');
 Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
 Route::get('/environmental-policy', [App\Http\Controllers\HomeController::class, 'environmental_policy'])->name('environmental-policy');
+Route::get('/health-and-safety-policy', [App\Http\Controllers\HomeController::class, 'health_and_safety_policy'])->name('health-and-safety-policy');
+Route::get('/nca-statement', [App\Http\Controllers\HomeController::class, 'nca_statement'])->name('nca-statement');
+
 
 
 Auth::routes();
 Route::group(['prefix'=>'admin'],function (){
+    Route::get('/', [ServiceController::class, 'index'])->name('services.index');
         // Services Routes
     Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');

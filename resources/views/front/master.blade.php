@@ -216,41 +216,29 @@
                                  <div class="single-usefull-name-five-footer">
                                     <h5 class="title">Quick Services</h5>
                                     <ul>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>General
-                                          Contracting</a>
+                                       <?php
+                                       $services = DB::table('services')->get();
+                                       ?>
+                                       @foreach($services as $service)
+                                       <li><a href="{{url('/service')}}/{{ $service->slung }}"><i class="fa-light fa-arrow-right"></i>{{ $service->title }}</a>
                                        </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Project
-                                          Management</a>
-                                       </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>New
-                                          Construction</a>
-                                       </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Renovations &
-                                          Remodeling</a>
-                                       </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Interior
-                                          Finishing</a>
-                                       </li>
+                                       @endforeach
+                                       
                                     </ul>
                                  </div>
                               </div>
                               <div class="col-lg-6">
                                  <div class="single-usefull-name-five-footer">
                                     <ul>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Project
-                                          Consultation</a>
+                                       <li><a href="{{url('/')}}/terms-and-condition"><i class="fa-light fa-arrow-right"></i>Terms and Conditions</a>
                                        </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Design &
-                                          Planning</a>
+                                       <li><a href="{{url('/')}}/privacy-policy"><i class="fa-light fa-arrow-right"></i>Privacy Policy</a>
                                        </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Residential
-                                          Construction</a>
+                                       <li><a href="{{url('/')}}/copyright-statement"><i class="fa-light fa-arrow-right"></i>Copyright Statement</a>
                                        </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Commercial
-                                          Construction</a>
+                                       <li><a href="{{url('/')}}/nca-statement"><i class="fa-light fa-arrow-right"></i>NCA Statement</a>
                                        </li>
-                                       <li><a href="#"><i class="fa-light fa-arrow-right"></i>Renovation
-                                          Services</a>
+                                       <li><a href="{{url('/')}}/health-and-safety-policy"><i class="fa-light fa-arrow-right"></i>Health and Safety Policy</a>
                                        </li>
                                     </ul>
                                  </div>
@@ -308,7 +296,7 @@
                      <div class="row">
                         <div class="col-lg-12">
                            <div class="copyright-5-wrapper">
-                              <p class="mb-0">
+                              <p class="mb-0" style="text-align: center !important; margin:0 auto;">
                                  Copyright &copy;
                                  <script>
                                     document.write(
@@ -317,10 +305,10 @@
                                  </script>
                                  Beniscope EastAfrica Limited. All Rights Reserved | Powered By Designekta Studio
                               </p>
-                              <ul>
+                              {{-- <ul>
                                  <li><a href="{{route('terms-of-condition')}}">Terms of use</a></li>
                                  <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
-                              </ul>
+                              </ul> --}}
                            </div>
                         </div>
                      </div>

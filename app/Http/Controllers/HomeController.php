@@ -67,4 +67,34 @@ class HomeController extends Controller
         $Projects = \App\Models\Project::where('slung', $slung)->first();
         return view('front.folio', compact('Projects'));
     }
+    // 
+    public function terms()
+    {
+        return view('front.terms');
+    }
+
+    //health_and_safety_policy
+    public function health_and_safety_policy()
+    {
+        return view('front.health_and_safety_policy');
+    }
+
+    //environmental_policy
+    public function environmental_policy()
+    {
+        return view('front.environmental_policy');
+    }
+
+    //nca_statement
+    public function nca_statement()
+    {
+        return view('front.nca_statement');
+    }
+    //privacy
+    public function privacy()
+    {
+        return view('front.privacy');
+    }
+    //get_quotation
+
 }

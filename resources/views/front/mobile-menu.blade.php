@@ -19,7 +19,7 @@
             
                
                 
-                <a href="#">{{$categories->cat}}</a>
+                <a href="#">{{$categories->title}}</a>
                 @if($SubCategories->count() > 0)
                     <ul class="submenu third-lvl base">
                         @foreach ($SubCategories as $subcategories)

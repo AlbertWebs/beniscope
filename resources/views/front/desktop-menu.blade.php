@@ -78,7 +78,7 @@
                                          <?php $SubCategories = DB::table('sub_categories')->where('category_id', $categories->id)->get(); ?>
                                          @if($SubCategories->count() > 0)
                                               <li class="sub-dropdown down">
-                                                <a href="#">{{$categories->cat}}</a>
+                                                <a href="#">{{$categories->title}}</a>
                                                 <ul class="submenu third-lvl base">
                                                    @foreach ($SubCategories as $subcategories)
                                                       <li><a href="#">{{$subcategories->title}}</a></li>
@@ -86,7 +86,7 @@
                                                 </ul>
                                              </li>
                                          @else
-                                             <li><a href="#">{{$categories->cat}}</a></li>
+                                             <li><a href="#">{{$categories->title}}</a></li>
                                           @endif
                                     @endforeach
                                    
