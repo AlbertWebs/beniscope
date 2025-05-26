@@ -433,7 +433,7 @@
                                 <div class="swiper-slide">
                                     <div class="single-case-studies-5">
                                         <a href="#">
-                                            <img style="height:700px; object-fit:cover; width:100%;" src="{{url('/')}}/uploads/{{$project->image}}" alt="">
+                                            <img style="height:519px; object-fit:cover; width:100%;" src="{{url('/')}}/uploads/{{$project->image}}" alt="">
                                         </a>
                                         <svg width="698" height="505" viewbox="0 0 698 505" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="698" height="505" rx="10" fill="black" fill-opacity="0.61"></rect>
@@ -454,8 +454,8 @@
                                                     {{$project->meta}}
                                                 </p>
                                                 {!!html_entity_decode($project->description)!!}
-                                                <a target="new" href="{{url('/')}}/uploads/{{$project->image}}" class="rts-btn btn-primary">View
-                                                    Image<img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="arrow"></a>
+                                                <a target="new" href="{{route('portfolio-single', $project->slung)}}" class="rts-btn btn-primary">Explore Project
+                                                    <img src="{{asset('theme/assets/images/icons/arrow-up-right.svg')}}" alt="arrow"></a>
 
                                             </div>
                                         </div>

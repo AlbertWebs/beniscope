@@ -61,4 +61,10 @@ class HomeController extends Controller
         $Projects = \App\Models\Project::orderBy('created_at', 'desc')->paginate(6);
         return view('front.portfolio', compact('Projects'));
     }
+
+    //portfolio_single
+    public function portfolio_single($slung){
+        $Projects = \App\Models\Project::where('slung', $slung)->first();
+        return view('front.folio', compact('Projects'));
+    }
 }

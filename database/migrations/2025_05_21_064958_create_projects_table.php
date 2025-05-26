@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('client');
+            $table->string('location');
+            $table->string('year');
+            $table->string('duration')->nullable(); // Assuming this is the project duration
+            $table->string('price')->nullable(); // Assuming this is the project status (e.g., ongoing, completed)
             $table->integer('category');
             $table->string('slung')->unique(); // Assuming this is a slug
             $table->string('meta')->nullable();

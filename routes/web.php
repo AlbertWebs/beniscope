@@ -15,6 +15,7 @@ Route::get('/what-we-do', [HomeController::class, 'whatWeDo'])->name('what-we-do
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/service/{sung}', [HomeController::class, 'service'])->name('service');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/portfolio/{slung}', [HomeController::class, 'portfolio_single'])->name('portfolio-single');
 Route::get('/news-updates', [HomeController::class, 'newsUpdates'])->name('news-updates');
 Route::get('/news-updates/{slung}', [HomeController::class, 'newsUpdate'])->name('news-update');
 Route::get('/get-quotation', [HomeController::class, 'get_quotation'])->name('get-quotation');

@@ -11,11 +11,12 @@
                 <div class="breadcrumb-area-inner">
                     <span class="water-text">Portfolio</span>
                     <h1 class="title">
-                    Portfolio
+                    {{$Projects->title}}
                     </h1>
                     <div class="nav-area-navigation">
-                    <a href="#">home</a>
-                    <a class="current" href="#">Portfolio</a>
+                        <a href="#">home</a>
+                        <a class="current" href="#">Portfolio</a>
+                        <a class="current" href="#">{{$Projects->title}}</a>
                     </div>
                 </div>
             </div>
@@ -24,58 +25,113 @@
     </div>
     <!-- rts banner area end -->
 
-      <!-- rts projects area start -->
-    <div class="rts-projects-area-inner rts-section-gap">
+
+<!-- project details area top -->
+    <div class="project-details-wrapper-image-top rts-section-gap">
         <div class="container">
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-lg-12">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <?php $Categories = DB::table('project__categories')->get(); ?>
-                        {{--  --}}
-                        <?php $Counts = 1; ?>
-                        @foreach ($Categories as $categories)
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link @if($Counts == 1) active @endif" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab_{{$categories->id}}" type="button" role="tab" aria-controls="tab_{{$categories->id}}" aria-selected="false">{{$categories->title}}</button>
-                        </li>
-                        <?php $Counts = $Counts+1 ?>
-                        @endforeach
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <?php $Count = 1; ?>
-                        @foreach ($Categories as $categories)
-                        <div class="tab-pane fade show @if($Count == 1) active @endif" id="tab_{{$categories->id}}" role="tabpanel" aria-labelledby="tab_{{$categories->id}}" tabindex="0">
-                            <div class="row g-24">
-                                <?php 
-                                   $Projects = DB::table('projects')->where('category', $categories->id)->get();    
-                                ?>
-                                @foreach ($Projects as $project)
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <div class="single-project-card-inner">
-                                        <a href="{{route('portfolio-single', $project->slung)}}" class="thumbnail">
-                                            <img src="{{asset('uploads/')}}/{{$project->image}}" alt="portfolio">
-                                        </a>
-                                        <div class="inner">
-                                            <a href="{{route('portfolio-single', $project->slung)}}">
-                                                <h5 class="title">{{$project->title}}</h5>
-                                            </a>
-                                            <span>{{$project->meta}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                               
-                            </div>
-                        </div>
-                        <?php $Count = $Count+1 ?>
-                        @endforeach
-                        
-                  
+                    <div class="thumbnail">
+                        <img style="height:600px; width:100%; object-fit:cover;" src="{{asset('uploads/')}}/{{$Projects->image}}" alt="portfolio">
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container mt--30">
+            <div class="row mb--40">
+                <div class="col-lg-12">
+                    <div class="single-project-info-wrapper-inner">
+                        <h4 class="title">{{$Projects->title}}</h4>
+                        <p class="disc">
+                            {{$Projects->meta}}
+                        </p>
+                        <div class="row g-4">
+                            <div class="col-lg-2">
+                                <div class="single-project-info">
+                                    <span>Client:</span>
+                                    <p>{{$Projects->title}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="single-project-info">
+                                    <span>Location:</span>
+                                    <p>{{$Projects->location}}</p>
+                                    <br>
+                                </div>
+                            </div>
+                           
+                            <div class="col-lg-2">
+                                <div class="single-project-info">
+                                    <span>Project Year:</span>
+                                    <p>{{$Projects->year}}</p><br>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="single-project-info">
+                                    <span>Duration: </span>
+                                    <p>{{$Projects->duration}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="single-project-info">
+                                    <span>Price:</span>
+                                    <p>{{$Projects->price}}</p><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="project-details-content-bottom">
+                        
+                        {{-- <p class="bold">
+                           {!!html_entity_decode($Projects->description)!!}
+                        </p> --}}
+                          <p class="bold">
+                           {!!html_entity_decode($Projects->content)!!}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{--  --}}
+             <?php 
+              // Check if there is a previous and next project
+              $Previous = DB::table('projects')->where('id', '<', $Projects->id)->orderBy('id', 'desc')->first();
+              $Next = DB::table('projects')->where('id', '>', $Projects->id)->orderBy('id', 'asc')->first();
+              if($Next == null){
+                $Next = DB::table('projects')->orderBy('id', 'asc')->first();
+              }
+              if($Previous == null){
+                $Previous = DB::table('projects')->orderBy('id', 'desc')->first();
+              }
+            ?>
+            <div class="col-lg-12">
+                <div class="next-prev-project-wrapper">
+                     <div class="single-next-prev-wrapper">
+                            <img src="{{asset('uploads/')}}/{{$Previous->image}}" alt="left">
+                            <div class="info">
+                                <span>Beniscope</span>
+                                <p>{{$Previous->title}}</p>
+                            </div>
+                    </div>
+                    <div class="single-next-prev-wrapper last">
+                        <div class="info">
+                            <span>Beniscope</span>
+                            <p>{{$Next->title}}</p>
+                        </div>
+                        <img src="{{asset('uploads/')}}/{{$Next->image}}" alt="left">
+                    </div>
+                </div>
+            </div>
+            {{--  --}}
+        </div>
     </div>
-    <!-- rts projects areaend -->
+    
+    <!-- project details area top -->
+
+    {{--  --}}
 
 
   

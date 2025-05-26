@@ -24,6 +24,14 @@
     </div>
     <!-- rts banner area end -->
 
+    <style>
+        h3{
+            /* font-size: 30px; */
+            font-weight: 600;
+            color: #000;
+        }
+    </style>
+    {{--  --}}
     <!-- service details area start -->
     <div class="service-details-area rts-section-gapTop pb--60">
         <div class="container">
