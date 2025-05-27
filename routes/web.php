@@ -19,11 +19,12 @@ Route::get('/portfolio/{slung}', [HomeController::class, 'portfolio_single'])->n
 Route::get('/news-updates', [HomeController::class, 'newsUpdates'])->name('news-updates');
 Route::get('/news-updates/{slung}', [HomeController::class, 'newsUpdate'])->name('news-update');
 Route::get('/get-quotation', [HomeController::class, 'get_quotation'])->name('get-quotation');
-
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
-Route::get('/construction-materials', [ConstructionMaterialController::class, 'index'])->name('construction-materials');
-Route::get('/construction-materials/{category}', [ConstructionMaterialController::class, 'category'])->name('construction-material-category');
-Route::get('/construction-materials/{category}/{product}', [ConstructionMaterialController::class, 'product'])->name('construction-material-product');
+
+Route::get('/construction-materials', [HomeController::class, 'construction_materials'])->name('construction-materials');
+Route::get('/construction-materials/{category}', [HomeController::class, 'category'])->name('construction-materials-category');
+Route::get('/construction-materials/product/{product}', [HomeController::class, 'product'])->name('construction-material-product');
+
 Route::get('/terms-and-condition', [App\Http\Controllers\HomeController::class, 'terms'])->name('terms-of-condition');
 Route::get('/privacy-policy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy-policy');
 Route::get('/environmental-policy', [App\Http\Controllers\HomeController::class, 'environmental_policy'])->name('environmental-policy');

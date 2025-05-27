@@ -96,5 +96,30 @@ class HomeController extends Controller
         return view('front.privacy');
     }
     //get_quotation
+    //construction_materials
+    public function construction_materials()
+    {
+        $materials = \App\Models\ConstructionMaterial::all();
+        return view('materials.index', compact('materials'));
+    }
+    // category
+    public function category($category)
+    {
+        $category = \App\Models\ConstructionCategory::where('slung', $category)->first();
+        $materials = \App\Models\ConstructionMaterial::where('construction_category_id', $category->id)->get();
+        $title = $category->title;
+        return view('materials.category', compact('materials', 'category', 'title'));
+    }
+
+    // single product
+    public function product($product)
+    {
+        $materials = \App\Models\ConstructionMaterial::where('slug', $product)->first();
+        $title = $materials->title;
+        if (!$materials) {
+            abort(404, 'Product not found');
+        }
+        return view('materials.product', compact('materials', 'title'));
+    }
 
 }

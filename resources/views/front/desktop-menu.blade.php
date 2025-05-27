@@ -71,25 +71,12 @@
                               </li>
 
                               <li class="main-nav has-dropdown project-a-after">
-                                 <a href="#"><span class="fa fa-shopping-cart"></span> &nbsp; Construction Material</a>
+                                 <a href="{{url('/construction-materials')}}"><span class="fa fa-shopping-cart"></span> &nbsp; Construction Material</a>
                                   <?php $Categoriez = DB::table('category')->get(); ?>
                                  <ul class="submenu parent-nav">
                                      @foreach ($Categoriez as $categories)
-                                         <?php $SubCategories = DB::table('sub_categories')->where('category_id', $categories->id)->get(); ?>
-                                         @if($SubCategories->count() > 0)
-                                              <li class="sub-dropdown down">
-                                                <a href="#">{{$categories->title}}</a>
-                                                <ul class="submenu third-lvl base">
-                                                   @foreach ($SubCategories as $subcategories)
-                                                      <li><a href="#">{{$subcategories->title}}</a></li>
-                                                   @endforeach
-                                                </ul>
-                                             </li>
-                                         @else
-                                             <li><a href="#">{{$categories->title}}</a></li>
-                                          @endif
+                                         <li><a href="{{url('/construction-materials')}}/{{$categories->slung}}">{{$categories->title}}</a></li>
                                     @endforeach
-                                   
                                  </ul>
                               </li>
                               <li class="main-nav">

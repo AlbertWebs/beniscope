@@ -28,14 +28,14 @@ class ConstructionMaterialController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'required|image',
-            'price' => 'required|numeric',
-            'description' => 'required|string',
-            'construction_category_id' => 'required|exists:construction_categories,id',
-            'construction_subcategory_id' => 'nullable|exists:construction_subcategories,id',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'image' => 'required|image',
+        //     'price' => 'required|numeric',
+        //     'description' => 'required|string',
+        //     'construction_category_id' => 'required|exists:construction_categories,id',
+        //     'construction_subcategory_id' => 'nullable|exists:construction_subcategories,id',
+        // ]);
 
         if(isset($request->image)){
             $dir = 'uploads/materials';
@@ -46,7 +46,7 @@ class ConstructionMaterialController extends Controller
             $SaveFilePath = "0";
         }
 
-        // $imagePath = $request->file('image')->store('materials', 'public');
+        // dd($SaveFilePath);
         ConstructionMaterial::create([
             'title' => $request->title,
             'image' => $SaveFilePath,

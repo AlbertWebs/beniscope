@@ -13,7 +13,7 @@
             <p><strong>Description:</strong> {{ $material->description }}</p>
             <p><strong>Price:</strong> KES {{ number_format($material->price, 2) }}</p>
             <p><strong>Image:</strong></p>
-            <img src="{{ asset('storage/' . $material->image) }}" width="200">
+            <img src="{{ $material->image }}" width="200">
         </div>
     </div>
     <a href="{{ route('materials.index') }}" class="btn btn-primary">Back to List</a>
